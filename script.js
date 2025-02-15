@@ -8,6 +8,8 @@ function maskPassword(pass){
     return str;
 }
 
+
+
 function copyText(txt) {
     navigator.clipboard.writeText(txt).then(
         () => {
@@ -21,6 +23,15 @@ function copyText(txt) {
             alert("Clipboard copying failed")
         },
     ) 
+}
+
+function togglePassword(index) {
+    let passField = document.getElementById(`pass-${index}`);
+    if (passField.innerText.includes("*")) {
+        passField.innerText = passField.dataset.realPassword; // Show actual password
+    } else {
+        passField.innerText = "*".repeat(passField.dataset.realPassword.length); // Mask it again
+    }
 }
 
 // LOGIC to fill the table
@@ -38,35 +49,41 @@ const deletePassword = (website) => {
 
 const showPasswords = () => {
 
-let tb = document.querySelector("table");
-let data = localStorage.getItem("passwords")
+    let tb = document.querySelector("table");
+    let data = localStorage.getItem("passwords");
 
-if(data == null || JSON.parse(data).length == 0){
-    tb.innerHTML = "NO data found"
-}
-else{
-    tb.innerHTML = ` <tr>
+    if (data == null || JSON.parse(data).length == 0) {
+        tb.innerHTML = "NO data found";
+    } else {
+        tb.innerHTML = `<tr>
                 <th>Website</th>
                 <th>Username</th>
-                <th>Passwords</th>
-                <th>Delete</th>
-            </tr>`
+                <th>Password</th>
+                <th>Actions</th>
+            </tr>`;
 
-    let arr = JSON.parse(data);
-    let str = ""
-    for (let index = 0; index < arr.length; index++) {
-        const element = arr[index];
-         str += `<tr>
-        <td>${element.website}<img onclick="copyText('${element.website}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
-</td>
-        <td>${element.username}<img onclick="copyText('${element.username}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
-</td>
-        <td>${maskPassword(element.password)}<img onclick="copyText('${element.password}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
-</td>
-        <td><button class ="btnsm" onclick="deletePassword('${element.website}')" >Delete</button></td>
-        </tr>`
-    }
-    tb.innerHTML = tb.innerHTML + str; 
+        let arr = JSON.parse(data);
+        let str = "";
+        for (let index = 0; index < arr.length; index++) {
+            const element = arr[index];
+            str += `<tr>
+                <td>${element.website}
+                    <img onclick="copyText('${element.website}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
+                </td>
+                <td>${element.username}
+                    <img onclick="copyText('${element.username}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
+                </td>
+                <td>
+                    <span id="pass-${index}" data-real-password="${element.password}">${maskPassword(element.password)}</span>
+                    <button class="toggle-btn" onclick="togglePassword(${index})">👁</button>
+                    <img onclick="copyText('${element.password}')" src="copy.svg" alt="Copy Icon" width="16" height="16">
+                </td>
+                <td>
+                    <button class="btnsm" onclick="deletePassword('${element.website}')">Delete</button>
+                </td>
+            </tr>`;
+        }
+        tb.innerHTML += str;
 }
     website.value = ""
     username.value = ""

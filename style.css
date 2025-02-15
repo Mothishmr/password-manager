@@ -1,87 +1,274 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
-*{
-    margin : 0;
-    padding : 0;
-    font-family: "Roboto", serif;
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-nav{
-    background-color: red;
-    padding : 12px 3px;
+body {
+    background: linear-gradient(135deg, #1e1e2f, #3a3a5e);
+    color: white;
+    padding: 20px;
+}
+
+/* Navigation */
+nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
 }
 
-.logo{
-    margin: 0 23px;
-    font-weight: 800;
-    font-size: 25px;
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-ul {
-    display : flex;
-    margin: 0 23px;
+nav .logo:hover {
+    color: #ffcc00;
 }
 
-ul li{
-    list-style-type: none;
-    margin: 0 13px;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
     cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-ul li:hover{
-    color: white;
+nav ul li:hover {
+    color: #ffcc00;
 }
 
-table, td, tr{
-    border: 2px solid black;
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    text-align: center;
+}
+
+/* Headings */
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Table */
+table {
+    width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
-    padding: 5px 13px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.container{
-    max-width: 80vw;
-    margin: 23px auto;
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-h1, h2, h3{
-    margin: 23px;
+th {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
 }
 
-.btn{
-    padding : 8px 17px;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    font-weight: 900;
-    border: 2px solid grey;
+tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+/* Input Field Styling */
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff; /* White text */
+    background: rgba(255, 255, 255, 0.1); /* Slightly visible background */
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    margin: 25px 0;
-    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
-.btnsm{
-    padding : 8px 17px;
-    background-color: black;
+/* Placeholder Styling */
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6); /* Light color for placeholders */
+}
+
+/* Input Focus Effect */
+input:focus {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+}
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #ffcc00;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #ffaa00;
+}
+
+.btnsm {
+    padding: 8px 12px;
+    font-size: 14px;
+    background: red;
     color: white;
-    font-size: 20px;
-    font-weight: 900;
-    border: 2px solid grey;
-    border-radius: 8px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-img{
-    cursor: pointer;
+.btnsm:hover {
+    background: darkred;
 }
-/* 
-.alert{
-    display : none;
-} */
 
-#alert{
-    display : none;
+/* Copy Icon */
+img {
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+    opacity: 0.7;
+    width: 14px;
+    height: 14px;
+}
+
+img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Alert */
+#alert {
+    display: none;
+    font-size: 14px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container, table, input, .btn {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+}
+
+
+/* Copy Icon Styling */
+table img {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    margin-left: 8px;
+    filter: brightness(0) invert(1); /* Makes the icon white */
+    transition: transform 0.2s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+table img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.8)); /* Adds a glow effect */
+}
+
+
+/* Navigation Links */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Hover Effect */
+nav ul li a:hover {
+    color: #ffcc00;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Active Link */
+nav ul li a:active {
+    color: #ffaa00;
+}
+
+/* Remove Underline on Click */
+nav ul li a:focus {
+    outline: none;
+}
+
+
+
+/* Toggle Button */
+.toggle-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.toggle-btn:hover {
+    transform: scale(1.2);
+    color: #ffdd57; /* Bright yellow effect */
 }
