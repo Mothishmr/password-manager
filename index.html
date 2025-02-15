@@ -5,15 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Manager</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
 
     <nav>
+
+        <div class="logo">Pass - X</div>
+
+    <ul>
         <li>Home</li>
         <li>About</li>
         <li>Services</li>
+    </ul>
     </nav>
 
-    
+    <div class="container">
+        <h1>Password Manager</h1>
+        <p>Welcome to Your Secure Password Manager!
+            Your security is our priority. Easily store, manage, and access all your passwords in one secure place. Say goodbye to forgotten passwords and enjoy a seamless, encrypted experience.</p>
+        <h2>Your Passwords</h2>
+        <table>
+            <tr>
+                <th>Website</th>
+                <th>Username</th>
+                <th>Passwords</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>CWH</td>
+                <td>mr@gmail.com</td>
+            </tr>
+        </table>
+
+
+        <h2>Add a Password</h2>
+        <form action="" method="post">
+            <!-- Text input for username -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br><br>
+        
+            <!-- Password input -->
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        <br>
+        
+            <!-- Submit button -->
+            <button type="submit" value="Submit" class="btn">Submit</button>
+          </form>
+
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
