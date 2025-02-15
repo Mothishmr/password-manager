@@ -1,0 +1,17 @@
+*{
+    margin : 0;
+    padding : 0;
+}
+
+nav{
+    background-color: red;
+
+}
+
+ul {
+    display : flex;
+}
+
+ul li{
+    list-style-type: none;
+}
