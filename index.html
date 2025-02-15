@@ -24,7 +24,8 @@
         <h1>Password Manager</h1>
         <p>Welcome to Your Secure Password Manager!
             Your security is our priority. Easily store, manage, and access all your passwords in one secure place. Say goodbye to forgotten passwords and enjoy a seamless, encrypted experience.</p>
-        <h2>Your Passwords</h2>
+        <h2>Your Passwords<span id="alert"> has been Copied!</span></h2>
+        <p class ="alert"></p>
         <table>
             <tr>
                 <th>Website</th>
@@ -32,16 +33,17 @@
                 <th>Passwords</th>
                 <th>Delete</th>
             </tr>
-            <tr>
-                <td>CWH</td>
-                <td>mr@gmail.com</td>
-            </tr>
+            
         </table>
 
 
         <h2>Add a Password</h2>
         <form action="" method="post">
             <!-- Text input for username -->
+
+            <label for="website">Website:</label>
+            <input type="text" id="website" name="website" required>
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <br><br>

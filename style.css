@@ -36,8 +36,10 @@ ul li:hover{
     color: white;
 }
 
-table{
+table, td, tr{
     border: 2px solid black;
+    border-collapse: collapse;
+    padding: 5px 13px;
 }
 
 .container{
@@ -59,4 +61,27 @@ h1, h2, h3{
     border-radius: 8px;
     margin: 25px 0;
     cursor: pointer;
+}
+
+.btnsm{
+    padding : 8px 17px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: 900;
+    border: 2px solid grey;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+img{
+    cursor: pointer;
+}
+/* 
+.alert{
+    display : none;
+} */
+
+#alert{
+    display : none;
 }
